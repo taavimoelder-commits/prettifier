@@ -24,7 +24,7 @@ public class Filestuff {
 		String[] headersRequired = {"name", "iso_country", "municipality", "icao_code", "iata_code", "coordinates"};
 		
 		for (String c : headersRequired) {  //check if header is valid
-			boolean found = false;		
+			boolean found = false;
 			for (String h : headers) {
 			if (h.trim().equals(c)) {
 			found = true;
@@ -62,7 +62,7 @@ public class Filestuff {
 		String[] headers2 = headerLine2.split(",");
 
 		int icaoIndex = Arrays.asList(headers2).indexOf("icao_code");
-		int iataIndex = Arrays.asList(headers2).indexOf("iata_code");
+		int iataIndex = Arrays.asList(headers2).indexOf("iata_code"); 
 		int nameIndex = Arrays.asList(headers2).indexOf("name");
 		int cityIndex = Arrays.asList(headers2).indexOf("municipality");
 

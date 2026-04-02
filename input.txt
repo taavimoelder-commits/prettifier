@@ -1,6 +1,6 @@
 # Basic valid replacements
 Flight from #JFK to #LHR
-City test: *#JFK to *#LHR
+City test: *#JFK to *#LHR 
 
 # ICAO vs IATA
 Departing from ##KJFK arriving at ##EGLL
