@@ -1,6 +1,6 @@
 package prettifier;
 
-public class Logo {
+public class Logo {   
 	public static void getLogo() {
 		System.out.println("""
 				·······································································
