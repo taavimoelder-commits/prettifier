@@ -32,7 +32,7 @@ public class Filestuff {
 			}
 			}
 		if (!found) {
-		throw new IllegalArgumentException("Error: airport-lookup mahttps://marketplace.eclipse.org/marketplace-client-intro?mpc_install=4254856lformed");
+		throw new IllegalArgumentException("Error: airport-lookup malformed");
 		}
 		
 		}
