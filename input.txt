@@ -1,0 +1,85 @@
+# Basic valid replacements
+Flight from #JFK to #LHR
+City test: *#JFK to *#LHR
+
+# ICAO vs IATA
+Departing from ##KJFK arriving at ##EGLL
+Mix: #JFK and ##EGLL and *#JFK
+
+# Unknown airport codes (should remain unchanged)
+Unknown IATA: #ZZZ
+Unknown ICAO: ##ZZZZ
+Unknown city: *#ZZZ
+
+# Mixed valid + invalid
+Combo: #JFK #ZZZ ##EGLL ##XXXX *#LHR *#YYY
+
+# Multiple occurrences in one line
+#JFK #JFK #JFK to ##EGLL ##EGLL
+
+# Edge: overlapping patterns
+###JFK (should treat as ## + # maybe)
+*##JFK (invalid combo, should mostly stay unchanged)
+
+# Dates (valid ISO)
+Departure: D(2024-03-15T10:15:30+01:00)
+Arrival: D(2025-12-01T23:59:59Z)
+
+# Dates (invalid ISO)
+Bad date: D(2024-13-40T99:99:99Z)
+Broken: D(not-a-date)
+
+# 12-hour time (valid)
+Boarding: T12(2024-03-15T10:15:30+01:00)
+Landing: T12(2024-03-15T23:05:00Z)
+
+# 12-hour time (invalid)
+Bad time: T12(2024-99-99T99:99:99Z)
+
+# 24-hour time (valid)
+Departure: T24(2024-03-15T10:15:30+01:00)
+Arrival: T24(2024-03-15T23:05:00Z)
+
+# 24-hour time (invalid)
+Bad time: T24(not-a-time)
+
+# Mixed date + time in one line
+Trip: D(2024-03-15T10:15:30+01:00) T12(2024-03-15T10:15:30+01:00) T24(2024-03-15T10:15:30+01:00)
+
+# Timezone edge cases
+UTC time: T24(2024-03-15T10:15:30Z)
+Offset time: T24(2024-03-15T10:15:30+05:45)
+
+# Extra whitespace and vertical spacing
+
+
+Line after many blanks
+
+
+Another line
+
+
+# Weird whitespace characters (may need manual insertion depending on editor)
+Line with carriage return
+Next part
+Line with form feedNext part
+Line with vertical tabNext part
+
+# Complex mixed case
+Flight *#JFK (#JFK) departs at T12(2024-03-15T10:15:30+01:00) on D(2024-03-15T10:15:30+01:00)
+
+# No patterns (should remain unchanged)
+Just a normal sentence with nothing to replace.
+
+# Edge: empty markers
+# 
+## 
+*#
+
+# Edge: partial matches
+#JF (too short)
+##JFKA (too long)
+*#JF
+
+# Stress test line
+#JFK##EGLL*#LHR D(2024-03-15T10:15:30+01:00)T12(2024-03-15T10:15:30+01:00)T24(2024-03-15T10:15:30
